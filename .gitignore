@@ -1,0 +1,47 @@
+# Compiled class files
+/target/
+/build/
+
+# IDE files and directories
+.idea/
+.vscode/
+*.iml
+
+# Dependency directories
+/lib/
+/libs/
+
+# Maven-specific files
+pom.xml.*
+target/
+dependency-reduced-pom.xml
+mvnw
+mvnw.cmd
+.settings/
+.classpath
+.project
+
+# Gradle-specific files
+.gradle/
+build/
+out/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore files with sensitive information
+secret.properties
+src/main/resources/application-dev.properties
+
+#Ignore openapi files
+openapi
+.github
+openapi-generator-cli.jar
+openapitools.json
