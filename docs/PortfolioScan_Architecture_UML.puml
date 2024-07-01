@@ -1,0 +1,45 @@
+@startuml
+package Extractor {
+    component ProjectExtractor #ADD1B2
+    component FeatureModelExtractor #ADD1B2
+    component VariantModelExtractor #ADD1B2
+    component FeatureExtractor #ADD1B2
+}
+note right of Extractor: Extract data from data sources
+
+
+package Transformer {
+    component ProjectTransformer
+    component FeatureModelTransformer
+    component VariantModelTransformer
+    component FeatureTransformer
+}
+note right of Transformer: Transform extracted data
+
+
+package Loader {
+    component ProjectLoader
+    component FeatureModelLoader
+    component VariantModelLoader
+    component FeatureLoader
+}
+note bottom of Loader: Load transformed data into storage
+
+
+Extractor -[hidden]-> Transformer: Extraction Event
+Transformer -[hidden]-> Loader: Transformation Event
+
+ProjectExtractor --> ProjectTransformer : ProjectExtractedEvent
+FeatureModelExtractor --> FeatureModelTransformer : FeatureModelExtractedEvent
+VariantModelExtractor --> VariantModelTransformer : VariantModelExtractedEvent
+FeatureExtractor --> FeatureTransformer : FeatureExtractedEvent
+
+ProjectTransformer --> ProjectLoader : ProjectTransformedEvent
+FeatureModelTransformer --> FeatureModelLoader : FeatureModelTransformedEvent
+VariantModelTransformer --> VariantModelLoader : VariantModelTransformedEvent
+FeatureTransformer --> FeatureLoader : FeatureTransformedEvent
+
+ProjectExtractor --> FeatureModelExtractor : ProjectExtractedEvent
+FeatureModelExtractor --> VariantModelExtractor : FeatureModelExtractedEvent
+VariantModelExtractor --> FeatureExtractor : VariantModelExtractedEvent
+@enduml

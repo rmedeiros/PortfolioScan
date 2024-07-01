@@ -28,7 +28,8 @@ The following image depicts the overview of portfolioscan's architecture:
 3. Run `mvn clean install` to build the project and install the necessary dependencies.
 
 ### Implementing your extractor
-PortfolioScan follows an Event-Driven-Architecture. If you want to extend it with your own extractor, 
+PortfolioScan follows an Event-Driven-Architecture. If you want to extend it with your own extractor, you need to implement the `Extractor` interface. The `Extractor` interface has the following methods:
+
 
 ### Configuration
 #### Configuring PortfolioScan
